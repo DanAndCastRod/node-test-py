@@ -14,7 +14,7 @@ app.post('/upload',(req, res) => {
     }
 
     let sampleFile = req.files.sampleFile;
-    let uploadPath = __dirname + '/uploads'+sampleFile.name;
+    let uploadPath = __dirname + '/uploads/'+sampleFile.name;
 
     sampleFile.mv(uploadPath, (err) =>{
         if(err) return res.status(500).send(err);
@@ -26,7 +26,7 @@ app.post('/upload',(req, res) => {
             }
             console.log(`Resultado script: ${stdout}`);
         });
-        res.send("File uploaded!")
+        // res.send("File uploaded!")
     });
 });
 

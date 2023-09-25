@@ -14,12 +14,12 @@ app.post('/upload',(req, res) => {
     }
 
     let sampleFile = req.files.sampleFile;
-    let uploadPath = __dirname + '/uploads/'+sampleFile.name;
+    let uploadPath = '/home/.node-red/public/node-test-py' + '/uploads/'+sampleFile.name;
 
     sampleFile.mv(uploadPath, (err) =>{
         if(err) return res.status(500).send(err);
 
-        exec("python3 "+ path.join(__dirname, "scripts", "myscript.py"), (error, stdout, stderr) =>{
+        exec("python3 "+ path.join('/home/.node-red/public/node-test-py', "scripts", "myscript.py"), (error, stdout, stderr) =>{
             if (error) {
                 console.error(`Error ejecutando el script: ${error}`)
                 return;
